@@ -1,5 +1,13 @@
 <h2>In the books index!!!</h2>
 
+<%= link_to "List all books", books_path %>
+
+<%= link_to "New book", new_book_path %>
+
+<%= link_to "Book number seven", book_path(7) %>
+
+<a href="/books">Custom anchor tag</a>
+
 <ul>
   <% @books.each do |book| %>
     <li>
