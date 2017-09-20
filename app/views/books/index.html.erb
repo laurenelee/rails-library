@@ -6,7 +6,8 @@
 
 <%= link_to "Book number seven", book_path(7) %>
 
-<a href="/books">Custom anchor tag</a>
+<%= link_to "Custom anchor tag", new_book_path, class: "link" %>
+<!-- <a href="/books" class="link">Custom anchor tag</a> -->
 
 <ul>
   <% @books.each do |book| %>
@@ -17,3 +18,22 @@
     </li>
   <% end %>
 </ul>
+
+
+#/app/assets/images/cat.jpg
+<%= image_tag "cats/cat.jpg", alt: "The cutest cat in the whole world." %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->
