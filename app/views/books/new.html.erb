@@ -1,8 +1,9 @@
 <h1>Add a Book</h1>
 
-
+<!-- SPECIAL INPUT TO ALLOW RAILS TO USE THIS FORM -->
+<!--
 <form action="/books" method="post" accept-charset="utf-8">
-  <!-- SPECIAL INPUT TO ALLOW RAILS TO USE THIS FORM -->
+
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
   <div>
@@ -18,3 +19,17 @@
 
   <input type="submit" value="Add Book">
 </form>
+-->
+
+<!-- Using form_tag -->
+<%= form_tag books_path, method: :post do %>
+
+  <%= label_tag "book[title]", "Title" %>
+  <%= text_field_tag "book[title]" %>
+
+  <%= label_tag "book[author]", "Author" %>
+  <%= text_field_tag "book[author]" %>
+
+  <%= submit_tag "Add Book" %>
+
+<% end %>

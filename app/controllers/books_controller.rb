@@ -8,7 +8,17 @@ class BooksController < ApplicationController
   end
 
   def create #Has access to user data, from the form
-    book = Book.new(title: params[:title], author: params[:author])
+    # Before, using a hand-rolled form, the format of data coming off
+    # the wire was different, so the way we pulled it out was also different:
+    # book = Book.new(title: params[:title], author: params[:author])
+
+    book = Book.new(title: params[:book][:title], author: params[:book][:author])
+
+    # Equivalent to:
+    # book = Book.new
+    # book.title = params[:book][:title]
+    # book.author = params[:book][:author]
+
     book.save
     redirect_to('/books')
   end
