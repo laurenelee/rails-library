@@ -3,10 +3,14 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
-  def new
+  def new #Only cares about showing the form
+
   end
 
-  def create
+  def create #Has access to user data, from the form
+    book = Book.new(title: params[:title], author: params[:author])
+    book.save
+    redirect_to('/books')
   end
 
   def show
