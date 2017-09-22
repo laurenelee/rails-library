@@ -13,8 +13,8 @@
   <% @books.each do |book| %>
     <li>
       <strong><%= link_to book.title, book_path(book.id) %></strong>
-      by: <em><%= book.author %></em>
-      <%# This is a comment %>
+      by <em><%= book.author %></em>
+      <%= link_to "Edit", edit_book_path(book.id) %>
     </li>
   <% end %>
 </ul>
