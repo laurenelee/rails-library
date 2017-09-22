@@ -1,0 +1,14 @@
+<!-- Use standard Ruby syntax to assign default values -->
+<% button_text ||= "The button" %>
+<% form_class ||= "" %>
+<% hide_placeholder_text ||= false %>
+
+<%= form_for @book, html: { class: form_class } do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: hide_placeholder_text ? "" : "title" %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author, placeholder: hide_placeholder_text ? "" : "author" %>
+
+  <%= f.submit button_text %>
+<% end %>

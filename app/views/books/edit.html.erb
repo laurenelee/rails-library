@@ -1,11 +1,4 @@
 <h2>Editing Book</h2>
 
-<%= form_for @book do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-
-  <%= f.submit %>
-<% end %>
+<%= render partial: "form",
+    locals: { hide_placeholder_text: true, form_class: "blue", button_text: "Update that book!" }%>
