@@ -21,15 +21,29 @@
 </form>
 -->
 
+
 <!-- Using form_tag -->
-<%= form_tag books_path, method: :post do %>
+<!-- <%= form_tag books_path, method: :post do %> -->
 
-  <%= label_tag "book[title]", "Title" %>
-  <%= text_field_tag "book[title]" %>
+  <!--          for=           text inside the tag -->
+  <!-- <%= label_tag "book[title]", "Book Title" %> -->
+  <!--               title=        text inside the tag -->
+  <!-- <%= text_field_tag "book[title]" %> -->
 
-  <%= label_tag "book[author]", "Author" %>
+  <!-- <%= label_tag "book[author]", "Author" %>
   <%= text_field_tag "book[author]" %>
 
   <%= submit_tag "Add Book" %>
 
+<% end %> -->
+
+
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.submit "Make me a book!" %>
 <% end %>

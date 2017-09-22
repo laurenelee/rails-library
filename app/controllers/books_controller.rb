@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   end
 
   def new #Only cares about showing the form
-
+    @book = Book.new
   end
 
   def create #Has access to user data, from the form
@@ -29,9 +29,15 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   def update
+    @book = Book.find(params[:id])
+    @book.author = params[:book][:author]
+    @book.title = params[:book][:title]
+    @book.save
+    redirect_to book_path(@book)
   end
 
   def destroy
