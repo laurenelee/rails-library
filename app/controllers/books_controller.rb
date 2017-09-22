@@ -41,5 +41,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    @book = Book.find(params[:id])
+    # Always use destroy! Delete will create weird bugs for you.
+    # @book.delete
+    @book.destroy
+    redirect_to books_path
   end
 end

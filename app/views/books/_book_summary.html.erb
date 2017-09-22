@@ -6,3 +6,5 @@ by
   <%= book.author %>
 </em>
 <%= link_to "Edit", edit_book_path(book.id) %>
+<%= link_to "Delete", book_path(book.id), method: :delete,
+    data: { confirm: "Really really?" } %>

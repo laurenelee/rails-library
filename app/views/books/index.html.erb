@@ -13,9 +13,10 @@
 </p>
 
 <ul>
-  <% @books.each do |book| %>
+  <% @books.each do |iter_book| %>
     <li>
-      <%= render partial: "book_summary", locals: { book: book } %>
+      <!-- Farm this out to a partial -->
+      <%= render partial: "book_summary", locals: { book: iter_book } %>
     </li>
   <% end %>
 </ul>

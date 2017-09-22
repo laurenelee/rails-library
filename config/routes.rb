@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete '/books/:id', to: 'books#destroy'
 
 
-  post '/books/:id/checkout', to: 'books#checkout', as: 'checkout_book'
+  post '/books/:id/mark_read', to: 'books#mark_read', as: 'mark_read'
 
   # resources :books
 end
