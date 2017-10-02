@@ -12,7 +12,8 @@ class BooksController < ApplicationController
     # the wire was different, so the way we pulled it out was also different:
     # book = Book.new(title: params[:title], author: params[:author])
 
-    book = Book.new(title: params[:book][:title], author: params[:book][:author])
+    book = Book.new(title: params[:book][:title])
+    book.author = Author.find_by(name: params[:book][:author])
 
     # Equivalent to:
     # book = Book.new

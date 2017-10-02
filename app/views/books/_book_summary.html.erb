@@ -3,7 +3,11 @@
 </strong>
 by
 <em>
-  <%= book.author %>
+  <% if book.author %>
+    <%= book.author.name %>
+  <% else %>
+    unknown
+  <% end %>
 </em>
 <%= link_to "Edit", edit_book_path(book.id) %>
 <%= link_to "Delete", book_path(book.id), method: :delete,
