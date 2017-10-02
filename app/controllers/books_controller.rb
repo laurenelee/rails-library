@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     # book = Book.new(title: params[:title], author: params[:author])
 
     @book = Book.new(title: params[:book][:title])
-    @book.author = Author.find_by(name: params[:book][:author])
+    @book.author_id = params[:book][:author_id]
 
     # Equivalent to:
     # book = Book.new

@@ -27,7 +27,8 @@
   <%= f.text_field :title, placeholder: hide_placeholder_text ? "" : "title" %>
 
   <%= f.label :author %>
-  <%= f.text_field :author, placeholder: hide_placeholder_text ? "" : "author" %>
+
+  <%= f.collection_select(:author_id, Author.all, :id, :name) %>
 
   <%= f.submit button_text %>
 <% end %>
