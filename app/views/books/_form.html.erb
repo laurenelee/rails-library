@@ -3,6 +3,25 @@
 <% form_class ||= "" %>
 <% hide_placeholder_text ||= false %>
 
+<% if @book.errors.messages.length > 0 %>
+  <section class="error-messages">
+    <h3>Errors happened!</h3>
+    <ul>
+      <% @book.errors.messages.each do |field, problems| %>
+        <% problems.each do |problem| %>
+          <li>
+            <strong>
+              <%= field %>:
+            </strong>
+            <%= problem %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+
 <%= form_for @book, html: { class: form_class } do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: hide_placeholder_text ? "" : "title" %>

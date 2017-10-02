@@ -12,16 +12,20 @@ class BooksController < ApplicationController
     # the wire was different, so the way we pulled it out was also different:
     # book = Book.new(title: params[:title], author: params[:author])
 
-    book = Book.new(title: params[:book][:title])
-    book.author = Author.find_by(name: params[:book][:author])
+    @book = Book.new(title: params[:book][:title])
+    @book.author = Author.find_by(name: params[:book][:author])
 
     # Equivalent to:
     # book = Book.new
     # book.title = params[:book][:title]
     # book.author = params[:book][:author]
 
-    book.save
-    redirect_to('/books')
+    if @book.save
+      redirect_to('/books')
+    else
+      # Tell the user what went wrong
+      render :new
+    end
   end
 
   def show
