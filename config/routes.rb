@@ -10,10 +10,16 @@ Rails.application.routes.draw do
   # patch '/books/:id', to: 'books#update'
   # delete '/books/:id', to: 'books#destroy'
 
+  # get '/', to: 'main#index', as: 'root'
+  root 'main#index'
+
   resources :books
-
-
   post '/books/:id/mark_read', to: 'books#mark_read', as: 'mark_read'
+
+
+  resources :authors, only: [:index, :new, :create]
+
+
 
 
 end
