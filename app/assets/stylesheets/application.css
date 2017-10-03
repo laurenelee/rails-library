@@ -17,3 +17,11 @@
  header h1 {
    background-color: orange;
  }
+
+ .error-messages {
+   color: red;
+ }
+
+ .field_with_errors {
+   display: inline;
+ }
