@@ -12,8 +12,8 @@ class BooksController < ApplicationController
     # the wire was different, so the way we pulled it out was also different:
     # book = Book.new(title: params[:title], author: params[:author])
 
-    @book = Book.new(title: params[:book][:title])
-    @book.author_id = params[:book][:author_id]
+    # @book = Book.new(params[:book]) # Rails will throw an error because this is insecure
+    @book = Book.new(book_params)
 
     # Equivalent to:
     # book = Book.new
@@ -39,8 +39,7 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.author = params[:book][:author]
-    @book.title = params[:book][:title]
+    @book.update_attributes(book_params)
     @book.save
     redirect_to book_path(@book)
   end
@@ -51,5 +50,10 @@ class BooksController < ApplicationController
     # @book.delete
     @book.destroy
     redirect_to books_path
+  end
+
+private
+  def book_params
+    return params.require(:book).permit(:title, :author_id)
   end
 end
