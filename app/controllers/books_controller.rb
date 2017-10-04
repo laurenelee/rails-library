@@ -7,6 +7,8 @@ class BooksController < ApplicationController
     end
   end
 
+  # Add in another comment
+
   def new #Only cares about showing the form
     @book = Book.new
     if params[:author_id]
