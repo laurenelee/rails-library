@@ -10,9 +10,13 @@
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: hide_placeholder_text ? "" : "title" %>
 
-  <%= f.label :author %>
 
-  <%= f.collection_select(:author_id, Author.all, :id, :name) %>
+  <% if @book.author_id %>
+    <%= f.hidden_field :author_id %>
+  <% else %>
+    <%= f.label :author %>
+    <%= f.collection_select(:author_id, Author.all, :id, :name) %>
+  <% end %>
 
   <%= f.submit button_text %>
 <% end %>

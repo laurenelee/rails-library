@@ -4,6 +4,8 @@
   <% @authors.each do |author| %>
     <li>
       <%= author.name %>
+      <%= link_to "View books", author_books_path(author) %>
+      <%= link_to "Add book", new_author_book_path(author) %>
     </li>
   <% end %>
 </ul>

@@ -17,7 +17,15 @@ Rails.application.routes.draw do
   post '/books/:id/mark_read', to: 'books#mark_read', as: 'mark_read'
 
 
-  resources :authors, only: [:index, :new, :create]
+  resources :authors, only: [:index, :new, :create] do
+    resources :books, only: [:index, :new]
+  end
+  # Build the same nested routes manually
+  # get '/authors/:author_id/books', to: 'books#index', as: 'author_books'
+  # get '/authors/:author_id/books/new', to: 'books#new', as: 'new_author_book'
+
+  # Don't need post because the author id is part of the form
+  # post '/authors/:author_id/books', to: 'books#create'
 
 
 

@@ -1,10 +1,17 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    if params[:author_id]
+      @books = Author.find(params[:author_id]).books
+    else
+      @books = Book.all
+    end
   end
 
   def new #Only cares about showing the form
     @book = Book.new
+    if params[:author_id]
+      @book.author_id = params[:author_id]
+    end
   end
 
   def create #Has access to user data, from the form
@@ -14,11 +21,6 @@ class BooksController < ApplicationController
 
     # @book = Book.new(params[:book]) # Rails will throw an error because this is insecure
     @book = Book.new(book_params)
-
-    # Equivalent to:
-    # book = Book.new
-    # book.title = params[:book][:title]
-    # book.author = params[:book][:author]
 
     if @book.save
       redirect_to('/books')
