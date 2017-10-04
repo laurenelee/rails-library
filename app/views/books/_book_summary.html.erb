@@ -1,7 +1,7 @@
 <strong>
   <%= link_to book.title, book_path(book.id) %>
 </strong>
-by
+by:
 <em>
   <% if book.author %>
     <%= book.author.name %>
