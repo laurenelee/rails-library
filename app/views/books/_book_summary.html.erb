@@ -9,6 +9,11 @@ by
     unknown
   <% end %>
 </em>
+
+Published:
+<%= book.publication_year %>,
+<%= book.age %> years ago
+
 <%= link_to "Edit", edit_book_path(book.id) %>
 <%= link_to "Delete", book_path(book.id), method: :delete,
     data: { confirm: "Really really?" } %>

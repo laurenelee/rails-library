@@ -18,5 +18,8 @@
     <%= f.collection_select(:author_id, Author.all, :id, :name) %>
   <% end %>
 
+  <%= f.label :publication_year %>
+  <%= f.number_field :publication_year %>
+
   <%= f.submit button_text %>
 <% end %>
