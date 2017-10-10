@@ -7,7 +7,7 @@ describe Book do
   #   value(book).must_be :valid?
   # end
 
-  # change to use yml file in fixture: 
+  # change to use yml file in fixture:
   let :author {Author.first}
 
   let :title {"test book title"}
@@ -72,6 +72,7 @@ describe Book do
       it "has an author using fixtures " do
         b = books(:poodr)
         a = authors(:metz)
+        # binding.pry
         b.must_respond_to :author
         b.author.must_equal a
         b.author_id.must_equal a.id
