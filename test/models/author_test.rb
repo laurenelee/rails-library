@@ -4,6 +4,8 @@ describe Author do
   let(:author) { Author.new }
 
   it "must be valid" do
-    value(author).must_be :valid?
+    # author.must_be :valid?
+    result = author.valid?
+    result.must_equal true
   end
 end
