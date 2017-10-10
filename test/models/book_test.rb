@@ -6,7 +6,10 @@ describe Book do
   # it "must be valid" do
   #   value(book).must_be :valid?
   # end
-  let :author {Author.create!}
+
+  # change to use yml file in fixture: 
+  let :author {Author.first}
+
   let :title {"test book title"}
   describe 'validations' do
     # this is the positive test:
@@ -65,6 +68,14 @@ describe Book do
         b.author.must_equal author
         b.author_id.must_equal author.id
       end
+      # positive test using fixture data
+      it "has an author using fixtures " do
+        b = books(:poodr)
+        a = authors(:metz)
+        b.must_respond_to :author
+        b.author.must_equal a
+        b.author_id.must_equal a.id
+      end
 
       # this is a positive test
       it "has a collection of genres" do
@@ -80,7 +91,7 @@ describe Book do
     end
 
     describe 'age' do
-      
+
     end
 
   end

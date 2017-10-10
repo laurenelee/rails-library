@@ -1,5 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-# 
+#
 # one:
 #   name: MyString
 #   nationalty: MyString
@@ -7,3 +7,9 @@
 # two:
 #   name: MyString
 #   nationalty: MyString
+
+butler:
+  name: Octavia butler
+
+metz:
+  name: Sandi metz
