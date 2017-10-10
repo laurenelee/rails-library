@@ -5,3 +5,9 @@
 #
 # two:
 #   name: MyString
+
+horror:
+  name: horror
+
+fantasy:
+  name: fantasy

@@ -84,7 +84,7 @@ describe Book do
         b.must_respond_to :genres
         b.genres.must_be :empty?
 
-        g = Genre.create!(name: "test genre")
+        g = genres(:horror)
         b.genres << g
         b.genres.must_include g
       end
@@ -92,7 +92,11 @@ describe Book do
     end
 
     describe 'age' do
-
+      it "will calculate pub year correctly" do
+        b = books(:poodr)
+        b.must_respond_to :publication_year
+        b.age.must_equal (Date.today.year - b.publication_year)
+      end
     end
 
   end
